@@ -25,6 +25,12 @@ Hangman is a classic word-guessing game where the objective is to guess a hidden
     cd hangman-game
     ```
 
+
+### ScreenShots
+![Hangman Screenshot](screenshots/Screenshot_01.png)
+![Hangman Screenshot](screenshots/Screenshot_02.png)
+![Hangman screenshot](screenshots/Screenshot_03.png)
+![Hangman Screenshot](screenshots/Screenshot_04.png)
 ### Running the Game
 1. Open `index.html` in your web browser to start the game.
 
