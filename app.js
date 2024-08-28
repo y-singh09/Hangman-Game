@@ -53,13 +53,23 @@ const initGame=(button,clickedLetter)=>{
     if(correctLetters.length===CurrentWord.length) 
        { return gameOver(true);}
 }
-for(let i=97;i<=122;i++)
-    {
-        const button=document.createElement("button");
-        button.innerText=String.fromCharCode(i);
-        keyboardDiv.appendChild(button);
-        button.addEventListener("click",(e)=>initGame(e.target,String.fromCharCode(i)));
+for (let i = 97; i <= 122; i++) {
+    const button = document.createElement("button");
+    button.innerText = String.fromCharCode(i);
+    button.setAttribute("data-key", String.fromCharCode(i)); 
+    keyboardDiv.appendChild(button);
+    button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
+}
 
+document.addEventListener("keydown", (e) => {
+    const key = e.key.toLowerCase();
+    if (key >= 'a' && key <= 'z') { 
+        const button = keyboardDiv.querySelector(`button[data-key="${key}"]:enabled`);
+        if (button) {
+            initGame(button, key);
+        }
     }
-    getRandomWord();
-    playAgainBtn.addEventListener("click",getRandomWord);
+});
+
+getRandomWord();
+playAgainBtn.addEventListener("click", getRandomWord);
